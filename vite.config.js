@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
+import path from 'node:path'
 
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
@@ -13,6 +14,12 @@ export default defineConfig({
   plugins: [
     uni(),uvwt( {disabled: tailwindcssDisabled})
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      // '$uni-router': path.resolve(__dirname, './src/utils/uni-router/'),
+    },
+  },
   // 内联 postcss 注册 tailwindcss
   css: {
     postcss: [
